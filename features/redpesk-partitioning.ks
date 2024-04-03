@@ -23,3 +23,8 @@ grep "^/dev.*Redpesk*" /mnt/sysroot/etc/fstab | while read part ; do
 	sed -i "s|${dev}|UUID=\"${UUID}\"|g" /mnt/sysroot/etc/fstab
 done
 %end
+
+%post --logfile=/mnt/sysroot/tmp/post-tmp.log --erroronfail
+echo "Enabling tmpfs for /tmp..."
+systemctl enable tmp.mount
+%end
