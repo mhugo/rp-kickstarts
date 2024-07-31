@@ -1,5 +1,5 @@
 #Add your custom project specific application's name in this file.
 
 %packages
-pyserial
+python3-pyserial
 %end
