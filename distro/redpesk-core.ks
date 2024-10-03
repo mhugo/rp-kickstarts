@@ -25,6 +25,8 @@ services --disabled="kdump"
 %end
 
 %post --erroronfail --log /tmp/post-distro.log
+echo "disable rngd.service"
+systemctl disable rngd.service
 echo "import gpg keys"
 rpm --import /etc/pki/rpm-gpg/RPM-GPG-KEY*
 echo "Packages within this disk image :"
