@@ -25,6 +25,9 @@ services --disabled="kdump"
 %end
 
 %post --erroronfail --log /tmp/post-distro.log
+# Note that /etc/dnf/dnf.conf is not replace at dnf upgrade
+echo "do not install weak deps"
+echo "install_weak_deps=0" >> /etc/dnf/dnf.conf
 echo "disable rngd.service"
 systemctl disable rngd.service
 echo "import gpg keys"
@@ -57,6 +60,7 @@ echo "BUILD_DATE=\"`date '+%Y-%m-%d %H:%M:%S'`\"" >> /etc/os-release
 %end
 
 %packages
+--exclude-weakdeps
 @core
 NetworkManager-wifi
 chkconfig
