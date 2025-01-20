@@ -4,6 +4,7 @@
 %post
 BINDING="\
 	helloworld-binding \
+        afb-mqtt-ext \
 "
 echo "BINDING=\"\$BINDING ${BINDING}\"" >> /tmp/binding-list
 %end
