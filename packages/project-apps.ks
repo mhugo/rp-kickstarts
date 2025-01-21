@@ -2,4 +2,5 @@
 
 %packages
 #CUSTOM PACKAGES LIST WILL COME HERE
+josev-rslac
 %end
